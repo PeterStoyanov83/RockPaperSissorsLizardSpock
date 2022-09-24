@@ -37,15 +37,15 @@ while command != "No":
         cprint("YOU WIN!!!", 'yellow', None)
 
     elif player_move == computer_move:
-        print("It's a Draw!")
+        cprint("It's a Draw!", 'green', None)
     else:
-        print("You lose!")
+        cprint("You lose!", 'red', None)
         computer_points += 1
-    print(f"Player   = {player_points}")
-    print(f"Computer = {computer_points}")
+    cprint(f"Player   = {player_points}", 'yellow',)
+    cprint(f"Computer = {computer_points}", 'yellow',)
     command = input(colored("Play Another Game ? [y]es or [n]o? : "), )
     if command == "y":
-        command = input(colored("Choose [r]ock, [p]aper or [s]cissors : "),)
+        command = input(colored("Choose [r]ock, [p]aper or [s]cissors : "), 'red',)
     elif command == "n":
         break
 
