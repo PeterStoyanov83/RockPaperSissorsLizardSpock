@@ -17,6 +17,21 @@ command = input(colored("Choose [r]ock, [p]aper, [s]cissors [l]izard or Sp[o]ck 
 while command not in ["r", "p", "s", "l", "o"]:
     cprint("Choose the right command", 'blue',)
 
+# a dictionary is kinda like a bunch of ifs, but faster!
+COMPUTER_MOVES_LOOKUP = {
+    # key: value
+    1: ROCK,
+    # key: value
+    2: PAPER,
+    # key: value
+    3: SCISSORS,
+    # key: value
+    4: LIZARD,
+    # key: value
+    5: SPOCK
+}
+
+
 while command != "n":
     PLAYER_MOVE = command
     if PLAYER_MOVE == "r":
@@ -33,16 +48,25 @@ while command != "n":
     else:
         raise SystemExit("Invalid Move try again...")
 
-    if COMPUTER_RANDOM_NUMBER == 1:
-        COMPUTER_MOVE = ROCK
-    elif COMPUTER_RANDOM_NUMBER == 2:
-        COMPUTER_MOVE = PAPER
-    elif COMPUTER_RANDOM_NUMBER == 3:
-        COMPUTER_MOVE = SCISSORS
-    elif COMPUTER_RANDOM_NUMBER == 4:
-        COMPUTER_MOVE = LIZARD
-    else:
-        COMPUTER_MOVE = SPOCK
+    # that's how we lookup values in a dictionary - by a key
+    # value = dictionary[key]
+    COMPUTER_MOVE = COMPUTER_MOVES_LOOKUP[COMPUTER_RANDOM_NUMBER]
+
+    # /\ this is equivalent to the thing below \/
+
+    # if COMPUTER_RANDOM_NUMBER == 1:
+    #     COMPUTER_MOVE = ROCK
+    # elif COMPUTER_RANDOM_NUMBER == 2:
+    #     COMPUTER_MOVE = PAPER
+    # elif COMPUTER_RANDOM_NUMBER == 3:
+    #     COMPUTER_MOVE = SCISSORS
+    # elif COMPUTER_RANDOM_NUMBER == 4:
+    #     COMPUTER_MOVE = LIZARD
+    # else:
+    #     COMPUTER_MOVE = SPOCK
+
+    # QUEST: do the same for PLAYER_MOVES!
+    # HINT: if dictionary has no value for a given key, it returns `None`
 
     cprint(f"The computer chose {COMPUTER_MOVE}.", "green", )
 
