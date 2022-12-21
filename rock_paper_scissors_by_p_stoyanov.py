@@ -14,8 +14,9 @@ PLAYER_POINTS = 0
 COMPUTER_RANDOM_NUMBER = random.randint(1, 5)
 
 command = input(colored("Choose [r]ock, [p]aper, [s]cissors [l]izard or Sp[o]ck : ", 'red'))
-while command not in "r" and command not in "p" and command not in "s" and command not in "l" and command not in "o":
+while command not in ["r", "p", "s", "l", "o"]:
     cprint("Choose the right command", 'blue',)
+
 while command != "n":
     PLAYER_MOVE = command
     if PLAYER_MOVE == "r":
