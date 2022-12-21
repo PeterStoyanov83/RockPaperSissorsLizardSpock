@@ -2,115 +2,115 @@ import random
 
 from termcolor import colored, cprint
 
-rock = "Rock"
-paper = "Paper"
-scissors = "Scissors"
-lizard = "Lizard"
-spock = "Spock"
-computer_move = ""
-player_move = ""
-computer_points = 0
-player_points = 0
-computer_random_number = random.randint(1, 5)
+ROCK = "Rock"
+PAPER = "Paper"
+SCISSORS = "Scissors"
+LIZARD = "Lizard"
+SPOCK = "Spock"
+COMPUTER_MOVE = ""
+PLAYER_MOVE = ""
+COMPUTER_POINTS = 0
+PLAYER_POINTS = 0
+COMPUTER_RANDOM_NUMBER = random.randint(1, 5)
 
 command = input(colored("Choose [r]ock, [p]aper, [s]cissors [l]izard or Sp[o]ck : ", 'red'))
 while command not in "r" and command not in "p" and command not in "s" and command not in "l" and command not in "o":
     cprint("Choose the right command", 'blue',)
 while command != "n":
-    player_move = command
-    if player_move == "r":
-        player_move = rock
-    elif player_move == "p":
-        player_move = paper
-    elif player_move == "s":
-        player_move = scissors
-    elif player_move == "l":
-        player_move = lizard
-    elif player_move == "o":
-        player_move = spock
+    PLAYER_MOVE = command
+    if PLAYER_MOVE == "r":
+        PLAYER_MOVE = ROCK
+    elif PLAYER_MOVE == "p":
+        PLAYER_MOVE = PAPER
+    elif PLAYER_MOVE == "s":
+        PLAYER_MOVE = SCISSORS
+    elif PLAYER_MOVE == "l":
+        PLAYER_MOVE = LIZARD
+    elif PLAYER_MOVE == "o":
+        PLAYER_MOVE = SPOCK
 
     else:
         raise SystemExit("Invalid Move try again...")
 
-    if computer_random_number == 1:
-        computer_move = rock
-    elif computer_random_number == 2:
-        computer_move = paper
-    elif computer_random_number == 3:
-        computer_move = scissors
-    elif computer_random_number == 4:
-        computer_move = lizard
+    if COMPUTER_RANDOM_NUMBER == 1:
+        COMPUTER_MOVE = ROCK
+    elif COMPUTER_RANDOM_NUMBER == 2:
+        COMPUTER_MOVE = PAPER
+    elif COMPUTER_RANDOM_NUMBER == 3:
+        COMPUTER_MOVE = SCISSORS
+    elif COMPUTER_RANDOM_NUMBER == 4:
+        COMPUTER_MOVE = LIZARD
     else:
-        computer_move = spock
+        COMPUTER_MOVE = SPOCK
 
-    cprint(f"The computer chose {computer_move}.", "green", )
+    cprint(f"The computer chose {COMPUTER_MOVE}.", "green", )
 
-    if player_move == computer_move:
+    if PLAYER_MOVE == COMPUTER_MOVE:
         cprint("It's a Draw!", 'green', )
-    elif player_move == rock and computer_move == scissors:
-        player_points += 1
+    elif PLAYER_MOVE == ROCK and COMPUTER_MOVE == SCISSORS:
+        PLAYER_POINTS += 1
         cprint("Rock crushes scissors! YOU WIN!!!", 'yellow', )
-    elif player_move == rock and computer_move == lizard:
-        player_points += 1
+    elif PLAYER_MOVE == ROCK and COMPUTER_MOVE == LIZARD:
+        PLAYER_POINTS += 1
         cprint("Rock crushes lizard! YOU WIN!!!", 'yellow', )
-    elif player_move == paper and computer_move == rock:
-        player_points += 1
+    elif PLAYER_MOVE == PAPER and COMPUTER_MOVE == ROCK:
+        PLAYER_POINTS += 1
         cprint("Paper covers rock! YOU WIN!!!", 'yellow', )
-    elif player_move == scissors and computer_move == paper:
-        player_points += 1
+    elif PLAYER_MOVE == SCISSORS and COMPUTER_MOVE == PAPER:
+        PLAYER_POINTS += 1
         cprint("Scissors cut paper! YOU WIN!!!", 'yellow', )
-    elif player_move == scissors and computer_move == lizard:
-        player_points += 1
+    elif PLAYER_MOVE == SCISSORS and COMPUTER_MOVE == LIZARD:
+        PLAYER_POINTS += 1
         cprint("Scissors decapitate lizard ! YOU WIN!!!", 'yellow', )
-    elif player_move == lizard and computer_move == paper:
-        player_points += 1
+    elif PLAYER_MOVE == LIZARD and COMPUTER_MOVE == PAPER:
+        PLAYER_POINTS += 1
         cprint("Lizard eats paper! YOU WIN!!!", 'yellow', )
-    elif player_move == paper and computer_move == spock:
-        player_points += 1
+    elif PLAYER_MOVE == PAPER and COMPUTER_MOVE == SPOCK:
+        PLAYER_POINTS += 1
         cprint("Paper disproves Spock! YOU WIN!!!", 'yellow', )
-    elif player_move == spock and computer_move == rock:
-        player_points += 1
+    elif PLAYER_MOVE == SPOCK and COMPUTER_MOVE == ROCK:
+        PLAYER_POINTS += 1
         cprint("Spock vaporises rock! YOU WIN!!!", 'yellow', )
-    elif player_move == lizard and computer_move == spock:
-        player_points += 1
+    elif PLAYER_MOVE == LIZARD and COMPUTER_MOVE == SPOCK:
+        PLAYER_POINTS += 1
         cprint("Lizard poisons Spock! YOU WIN!!!", 'yellow')
-    elif player_move == spock and computer_move == scissors:
-        player_points += 1
+    elif PLAYER_MOVE == SPOCK and COMPUTER_MOVE == SCISSORS:
+        PLAYER_POINTS += 1
         cprint("Spock smashes scissors! YOU WIN!!!", 'yellow')
 
-    elif computer_move == rock and player_move == scissors:
-        computer_points += 1
+    elif COMPUTER_MOVE == ROCK and PLAYER_MOVE == SCISSORS:
+        COMPUTER_POINTS += 1
         cprint("Rock crushes scissors! YOU LOSE!!!", 'red', )
-    elif computer_move == rock and player_move == lizard:
-        computer_points += 1
+    elif COMPUTER_MOVE == ROCK and PLAYER_MOVE == LIZARD:
+        COMPUTER_POINTS += 1
         cprint("Rock crushes lizard! YOU LOSE!!!", 'red', )
-    elif computer_move == paper and player_move == rock:
-        computer_points += 1
+    elif COMPUTER_MOVE == PAPER and PLAYER_MOVE == ROCK:
+        COMPUTER_POINTS += 1
         cprint("Paper covers rock! YOU LOSE!!!", 'red', )
-    elif computer_move == scissors and player_move == paper:
-        computer_points += 1
+    elif COMPUTER_MOVE == SCISSORS and PLAYER_MOVE == PAPER:
+        COMPUTER_POINTS += 1
         cprint("Scissors cut paper! YOU LOSE!!!", 'red', )
-    elif computer_move == scissors and player_move == lizard:
-        computer_points += 1
+    elif COMPUTER_MOVE == SCISSORS and PLAYER_MOVE == LIZARD:
+        COMPUTER_POINTS += 1
         cprint("Scissors decapitate lizard ! YOU LOSE!!!", 'red', )
-    elif computer_move == lizard and player_move == paper:
-        computer_points += 1
+    elif COMPUTER_MOVE == LIZARD and PLAYER_MOVE == PAPER:
+        COMPUTER_POINTS += 1
         cprint("Lizard eats paper! YOU LOSE!!!", 'red', )
-    elif computer_move == paper and player_move == spock:
-        computer_points += 1
+    elif COMPUTER_MOVE == PAPER and PLAYER_MOVE == SPOCK:
+        COMPUTER_POINTS += 1
         cprint("Paper disproves Spock! YOU LOSE!!!", 'red', )
-    elif computer_move == spock and player_move == rock:
-        computer_points += 1
+    elif COMPUTER_MOVE == SPOCK and PLAYER_MOVE == ROCK:
+        COMPUTER_POINTS += 1
         cprint("Spock vaporises rock! YOU LOSE!!!", 'red', )
-    elif computer_move == lizard and player_move == spock:
-        computer_points += 1
+    elif COMPUTER_MOVE == LIZARD and PLAYER_MOVE == SPOCK:
+        COMPUTER_POINTS += 1
         cprint("Lizard poisons Spock! YOU LOSE!!!", 'red', )
-    elif computer_move == spock and player_move == scissors:
-        computer_points += 1
+    elif COMPUTER_MOVE == SPOCK and PLAYER_MOVE == SCISSORS:
+        COMPUTER_POINTS += 1
         cprint("Spock smashes scissors! YOU LOSE!!!", 'red',)
 
-    cprint(f"Player   = {player_points}", 'yellow', )
-    cprint(f"Computer = {computer_points}", 'yellow', )
+    cprint(f"Player   = {PLAYER_POINTS}", 'yellow', )
+    cprint(f"Computer = {COMPUTER_POINTS}", 'yellow', )
 
     command = input(colored("Play Another Game ? [y]es or [n]o? : ", 'cyan', ))
     if command == "y":
